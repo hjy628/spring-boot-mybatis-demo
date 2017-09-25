@@ -7,6 +7,7 @@
     <groupId>com.hjy</groupId>
     <artifactId>spring-boot-mybatis-demo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
 
 </project>
