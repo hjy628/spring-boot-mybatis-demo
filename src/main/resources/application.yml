@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  context-path: /spring-boot-mybatis-demo
+spring:
+  datasource.read:
+    driverClassName: @read.datasource.driverClassName@
+    url: @read.datasource.url@
+    username: @read.datasource.username@
+    password: @read.datasource.password@
+    initialSize: 2
+    minIdle: 10
+    maxActive: 200
+    maxWait: 5000
+    filters: stat,wall,log4j
+    testOnBorrow: true
+    testOnReturn: true
+    testWhileIdle: true
+    validationQuery: select 1
+    timeBetweenEvictionRunsMillis: 30000
+  datasource.write:
+    driverClassName: @write.datasource.driverClassName@
+    url: @write.datasource.url@
+    username: @write.datasource.username@
+    password: @write.datasource.password@
+    initialSize: 2
+    minIdle: 10
+    maxActive: 200
+    maxWait: 5000
+    filters: stat,wall,log4j
+    testOnBorrow: true
+    testOnReturn: true
+    testWhileIdle: true
+    validationQuery: select 1
+    timeBetweenEvictionRunsMillis: 30000
+  jackson:
+    date-format: yyyy-MM-dd kk:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    host: @redis.host@
+    pool.max-active: 8
+    pool.max-idle: 8
+    pool.min-idle: 0
+    pool.max-wait: -1
+    port: 6379
+    timeout: 0
+    password: @redis.password@
+logging:
+  level:
+   ROOT: @logging.level@
