@@ -8,7 +8,7 @@
     <!--只需要修改两个地方-->
     <!--1： 修改成自己的本地mysql jar-->
     <!--2： 找到 tableName，替换成想要生成的表名即可-->
-    <classPathEntry location="E:/MySQL/Connector J 5.1.29/mysql-connector-java-5.1.29-bin.jar"/>
+    <classPathEntry location="/home/hjy/IdeaProjects/spring-boot-mybatis-demo/target/spring-boot-mybatis-demo/WEB-INF/lib/mysql-connector-java-5.1.43.jar"/>
 
     <!--
     context:生成一组对象的环境
@@ -45,8 +45,8 @@
         </commentGenerator>
 
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://10.137.1.12:3306/honda"
-                        userId="root" password="honDa_test">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/demo"
+                        userId="root" password="">
         </jdbcConnection>
 
         <!-- java类型处理器
@@ -70,7 +70,7 @@
         targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
         targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
         -->
-        <javaModelGenerator targetPackage="com.honda.domain" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.hjy.domain" targetProject="src/main/java">
             <!--  for MyBatis3/MyBatis3Simple
                 自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter；
              -->
@@ -102,7 +102,7 @@
              或者只使用Mapper接口+Annotation，所以，如果 javaClientGenerator配置中配置了需要生成XML的话，这个元素就必须配置
          targetPackage/targetProject:同javaModelGenerator
         -->
-        <sqlMapGenerator targetPackage="com.honda.mapper.xml" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.hjy.mapper.xml" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
@@ -116,7 +116,7 @@
              3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
          注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER
         -->
-        <javaClientGenerator targetPackage="com.honda.mapper" type="XMLMAPPER" targetProject="src/main/java">
+        <javaClientGenerator targetPackage="com.hjy.mapper" type="XMLMAPPER" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
 
@@ -163,7 +163,7 @@
 
         注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
         -->
-        <table tableName="hd_coupon_active_log">
+        <table tableName="customer">
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <property name="constructorBased" value="false"/>
